@@ -24,6 +24,16 @@ require_relative '../models/address_book'
      end
    end
 
+   describe "#demolish" do
+       it "deletes all the entries in the address book" do
+         book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+         book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+
+         book.demolish
+         expect(book.entries.size).to eq(0)
+       end
+   end
+
    describe "#add_entry" do
        it "adds only one entry to the address book" do
          book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
